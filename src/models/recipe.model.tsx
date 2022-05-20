@@ -3,18 +3,17 @@ export interface Recipe {
   title: string;
   body: string;
 }
-export interface RecipeState {
-  recipeList: Array<Recipe>;
-}
 
-export const recipeInitialState: RecipeState = {
-  recipeList: [],
+export const recipeInitialState = {
+  recipeList: [] as Recipe[],
 };
 
-export interface RecipeAction {
+export type RecipeState = typeof recipeInitialState;
+
+export type RecipeAction = {
   type: RecipeActionType;
-  payload: '';
-}
+  payload: Recipe | Recipe[];
+};
 
 export enum RecipeActionType {
   SET_RECIPIES,

@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import RecipeProvider from './context/recipe.context';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import NotFound from './views/not-found.view';
@@ -14,15 +15,17 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route index element={<RecipeList />} />
-        <Route path="get/:recipeId" element={<RecipeItem />} />
-        <Route path="add" element={<RecipeAddEdit />} />
-        <Route path="edit/:recipeId" element={<RecipeAddEdit />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <RecipeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<RecipeList />} />
+          <Route path="get/:recipeId" element={<RecipeItem />} />
+          <Route path="add" element={<RecipeAddEdit />} />
+          <Route path="edit/:recipeId" element={<RecipeAddEdit />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </RecipeProvider>
   </React.StrictMode>
 );
 
