@@ -1,5 +1,5 @@
 import { Recipe } from 'src/models/recipe.model';
-const url = 'https://usman-recipes.herokuapp.com/api/recipes';
+const url = 'https://usman-recipes.herokuapp.com/api/recipes/';
 const headers = { 'X-Api-Key': '2r1MsGLr9CVkmoWXP3W9cw==PRc4vXEXY0paXsms' };
 
 export const getAllRecipes = async () => {
