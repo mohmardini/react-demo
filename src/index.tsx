@@ -19,7 +19,7 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route index element={<RecipeList />} />
-          <Route path="get/:recipeId" element={<RecipeItem />} />
+          <Route path="view/:recipeId" element={<RecipeItem />} />
           <Route path="add" element={<RecipeAddEdit />} />
           <Route path="edit/:recipeId" element={<RecipeAddEdit />} />
           <Route path="*" element={<NotFound />} />

@@ -9,8 +9,10 @@ const RecipeAddEdit = () => {
   const [recipe, setRecipe] = useState({});
 
   useEffect(() => {
-    const recipePromise = getRecipe(recipeId);
-    recipePromise.then(setRecipe);
+    if (recipeId) {
+      const recipePromise = getRecipe(recipeId);
+      recipePromise.then(setRecipe);
+    }
   }, [recipeId]);
 
   const submit = () => {};
