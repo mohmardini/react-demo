@@ -7,3 +7,12 @@ export interface RecipeState {
   recipeList: Array<Recipe>;
   recipeItem: Recipe;
 }
+
+export const recipeInitialState: RecipeState = {
+  recipeList: [],
+  recipeItem: {
+    _id: '',
+    title: '',
+    body: '',
+  },
+};

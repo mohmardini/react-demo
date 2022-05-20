@@ -4,6 +4,9 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import NotFound from './views/not-found.view';
+import RecipeAddEdit from './views/recipe-add-edit.view';
+import RecipeItem from './views/recipe-item.view';
 import RecipeList from './views/recipe-list.view';
 
 const root = ReactDOM.createRoot(
@@ -14,8 +17,10 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<RecipeList />} />
-        <Route path="/:recipe-id" />
-        <Route path="*" />
+        <Route path="/:recipe-id" element={<RecipeItem />} />
+        <Route path="/add/:recipe-id" element={<RecipeAddEdit />} />
+        <Route path="/edit/:recipe-id" element={<RecipeAddEdit />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

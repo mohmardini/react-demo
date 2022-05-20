@@ -1,13 +1,31 @@
-// import { Recipe, RecipeState } from 'src/models/recipe.model';
+import { Recipe } from 'src/models/recipe.model';
 
-// export const getAllRecipes = async (): Promise<RecipeState['recipeList']> => {
-//   return [];
-// };
+export const getAllRecipes = async () => {
+  return await fetch('https://usman-recipes.herokuapp.com/api/recipes').then(
+    (res) => res.json()
+  );
+};
 
-// export const async getRecipe = (_id: Recipe['_id']): Recipe => {};
+export const getRecipe = async (_id: Recipe['_id']) => {
+  return await fetch(
+    'https://usman-recipes.herokuapp.com/api/recipes/' + _id
+  ).then((res) => res.json());
+};
 
-// export const async deleteRecipe = (_id: Recipe['_id']) => {};
+export const deleteRecipe = async (_id: Recipe['_id']) => {
+  return await fetch('https://usman-recipes.herokuapp.com/api/recipes/' + _id, {
+    method: 'DELETE',
+  }).then((res) => res.json());
+};
 
-// export const async addRecipe = (recipe: Recipe): boolean => {
-//   return true;
-// };
+export const addRecipe = async (recipe: Recipe) => {
+  return await fetch('https://usman-recipes.herokuapp.com/api/recipes/').then(
+    (res) => res.json()
+  );
+};
+
+export const putRecipe = async (recipe: Recipe) => {
+  return await fetch('https://usman-recipes.herokuapp.com/api/recipes/').then(
+    (res) => res.json()
+  );
+};
