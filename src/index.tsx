@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -16,10 +16,10 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<RecipeList />} />
-        <Route path="/:recipe-id" element={<RecipeItem />} />
-        <Route path="/add/:recipe-id" element={<RecipeAddEdit />} />
-        <Route path="/edit/:recipe-id" element={<RecipeAddEdit />} />
+        <Route index element={<RecipeList />} />
+        <Route path="get/:recipeId" element={<RecipeItem />} />
+        <Route path="add" element={<RecipeAddEdit />} />
+        <Route path="edit/:recipeId" element={<RecipeAddEdit />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -1,36 +1,34 @@
 import React from 'react';
 import { recipeInitialState } from 'src/models/recipe.model';
 
-enum RecipeActionType {
-  ADD_RECIPIES,
-  EDIT_RECIPE,
+export enum RecipeActionType {
+  FILL_RECIPIES,
 }
 interface RecipeReducerPayload {
   type: RecipeActionType;
   payload: object;
 }
-export interface ReactProviderPropTypes {
+interface ReactProviderPropTypes {
   children: React.ReactNode;
 }
 
 const recipeReducer = ({ type, payload }: RecipeReducerPayload) => {
   switch (type) {
-    case RecipeActionType.ADD_RECIPIES: {
-    }
-    case RecipeActionType.EDIT_RECIPE: {
+    case RecipeActionType.FILL_RECIPIES: {
     }
   }
   return {};
 };
-const [state, dispatch] = React.useReducer(recipeReducer, recipeInitialState);
-export const RecipeContext = React.createContext({ state, dispatch });
+export const RecipeContext = React.createContext({});
 
-function RecipeProvider({ children }: ReactProviderPropTypes) {
+export const RecipeProvider = ({ children }: ReactProviderPropTypes) => {
+  const [state, dispatch] = React.useReducer(recipeReducer, recipeInitialState);
+
   return (
     <RecipeContext.Provider value={{ state, dispatch }}>
       {children}
     </RecipeContext.Provider>
   );
-}
+};
 
 export default RecipeProvider;
