@@ -19,7 +19,7 @@ const RecipeAddEdit = () => {
     <RecipeProvider>
       <Form onSubmit={() => submit()}>
         {Object.keys(recipe).map((key) => (
-          <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Group className="mb-3" controlId={`formBasic${key}`}>
             <Form.Label>{key}</Form.Label>
             <Form.Control type="text" placeholder={`Enter ${key}`} />
           </Form.Group>

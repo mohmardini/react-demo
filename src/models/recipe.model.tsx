@@ -10,3 +10,12 @@ export interface RecipeState {
 export const recipeInitialState: RecipeState = {
   recipeList: [],
 };
+
+export interface RecipeAction {
+  type: RecipeActionType;
+  payload: '';
+}
+
+export enum RecipeActionType {
+  SET_RECIPIES,
+}
