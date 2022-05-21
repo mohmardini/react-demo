@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Stack } from 'react-bootstrap';
+import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { deleteRecipe, getAllRecipes } from 'src/api/recipe.api';
 import { useRecipeContext } from 'src/hooks/recipe-context.hook';
@@ -30,33 +30,37 @@ const RecipeList = () => {
   };
 
   return (
-    <Stack direction="horizontal" gap={3}>
+    <Container>
       <Button onClick={navigateToAdd}>Add</Button>
-      {state.recipeList.map((recipe) => {
-        return (
-          <Card>
-            <Link to={`/view/${recipe._id}`}>
-              <Card.Header>
-                <Card.Title>{recipe.title}</Card.Title>
-              </Card.Header>
-            </Link>
-            <Card.Text>{recipe.body}</Card.Text>
-            <Button
-              variant="secondary"
-              onClick={() => navigateToEdit(recipe._id)}
-            >
-              Edit
-            </Button>
-            <Button
-              variant="danger"
-              onClick={() => deleteRecipeHandler(recipe._id)}
-            >
-              Delete
-            </Button>
-          </Card>
-        );
-      })}
-    </Stack>
+      <Row xs={1} md={4}>
+        {state.recipeList.map((recipe) => {
+          return (
+            <Col key={recipe._id}>
+              <Card>
+                <Link to={`/view/${recipe._id}`}>
+                  <Card.Header>
+                    <Card.Title>{recipe.title}</Card.Title>
+                  </Card.Header>
+                </Link>
+                <Card.Text>{recipe.body}</Card.Text>
+                <Button
+                  variant="secondary"
+                  onClick={() => navigateToEdit(recipe._id)}
+                >
+                  Edit
+                </Button>
+                <Button
+                  variant="danger"
+                  onClick={() => deleteRecipeHandler(recipe._id)}
+                >
+                  Delete
+                </Button>
+              </Card>
+            </Col>
+          );
+        })}
+      </Row>
+    </Container>
   );
 };
 

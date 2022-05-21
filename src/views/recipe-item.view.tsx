@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { getRecipe } from 'src/api/recipe.api';
 import { Recipe } from 'src/models/recipe.model';
@@ -28,7 +28,6 @@ const RecipeItem = () => {
         <Card.Title>{recipe.title}</Card.Title>
       </Card.Body>
       <Card.Text>{recipe.body}</Card.Text>
-      <Button>Edit</Button>
     </Card>
   );
 };
