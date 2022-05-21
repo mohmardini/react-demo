@@ -19,7 +19,7 @@ const RecipeItem = () => {
       .then(setImage);
 
     getRecipe(recipeId).then(setRecipe);
-  }, []);
+  }, [recipeId]);
 
   return (
     <Card>

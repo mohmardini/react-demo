@@ -26,7 +26,7 @@ export const addRecipe = async (recipe: Recipe) => {
 };
 
 export const putRecipe = async (recipe: Recipe) => {
-  return await fetch(url, {
+  return await fetch(url + recipe._id, {
     method: 'PUT',
     headers,
     body: JSON.stringify(recipe),
