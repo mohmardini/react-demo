@@ -1,8 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import { Nav } from 'react-bootstrap';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import RecipeProvider from './context/recipe.context';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -11,18 +10,19 @@ import RecipeAddEdit from './views/recipe-add-edit.view';
 import RecipeItem from './views/recipe-item.view';
 import RecipeList from './views/recipe-list.view';
 
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
+  
     <RecipeProvider>
       <BrowserRouter>
-        <Nav>
+        {/* <Nav>
           <Nav.Link as={Link} to="/">
             RecipeList
           </Nav.Link>
-        </Nav>
+        </Nav> */}
         <Routes>
           <Route index element={<RecipeList />} />
           <Route path="view/:recipeId" element={<RecipeItem />} />
@@ -32,7 +32,7 @@ root.render(
         </Routes>
       </BrowserRouter>
     </RecipeProvider>
-  </React.StrictMode>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

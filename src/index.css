@@ -15,3 +15,48 @@ code {
 #root {
   height: 100vh;
 }
+
+
+.bg-header{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("https://assets.epicurious.com/photos/6215118802c6f8194056c32c/16:9/w_2560%2Cc_limit/HoneyBuns_HERO_021622_28331.jpg");
+  height: 150px;
+  width: 100%;
+}
+
+
+.card-title {
+  display: inline-block;
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  font-size: 16px;
+}
+
+.card-title > a {
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card-icons{
+  float:right;
+  cursor: pointer;
+}
+
+.card-description{
+  padding: .5rem 1rem;
+  max-height: 200px;
+  height: 200px;
+  overflow: hidden !important;
+  padding-bottom: 10px;
+}
+
+.footer{
+  background-color: #483C32;
+  margin-top: 50px;
+  color:white;
+}

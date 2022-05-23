@@ -3,6 +3,7 @@ import { Button, Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { addRecipe, getRecipe, putRecipe } from 'src/api/recipe.api';
 import RecipeProvider from 'src/context/recipe.context';
+import BasicLayout from 'src/layout/BasicLayout';
 import { Recipe } from 'src/models/recipe.model';
 
 const RecipeAddEdit = () => {
@@ -30,24 +31,28 @@ const RecipeAddEdit = () => {
   };
 
   return (
-    <RecipeProvider>
-      <Form onSubmit={(e) => submit(e)}>
-        {Object.keys(recipe).map((key) => (
-          <Form.Group className="mb-3" controlId={`formBasic${key}`} key={key}>
-            <Form.Label>{key.toUpperCase()}</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder={`Enter ${key}`}
-              onChange={(e) => setRecipe({ ...recipe, [key]: e.target.value })}
-              value={recipe[key]}
-            />
-          </Form.Group>
-        ))}
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
-    </RecipeProvider>
+    
+    <BasicLayout>
+      <RecipeProvider>
+        <Form onSubmit={(e) => submit(e)}>
+          {Object.keys(recipe).map((key) => (
+            <Form.Group className="m-3" controlId={`formBasic${key}`} key={key}>
+              <Form.Label>{key.toUpperCase()}</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder={`Enter ${key}`}
+                onChange={(e) => setRecipe({ ...recipe, [key]: e.target.value })}
+                value={recipe[key]}
+              />
+            </Form.Group>
+          ))}
+          <Button   className="m-3" variant="warning" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </RecipeProvider>
+    </BasicLayout>
+   
   );
 };
 
