@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 import { Recipe } from 'src/models/recipe.model';
 
 type DisplayCardPropTypes = Recipe & {
-  navigateToEdit: (_id: Recipe['_id']) => void;
-  deleteRecipeHandler: (_id: Recipe['_id']) => void;
+  navigateToEdit: (_id: Recipe['id']) => void;
+  deleteRecipeHandler: (_id: Recipe['id']) => void;
 };
 
 const DisplayCard = ({
-  _id,
+  id,
   title,
   body,
   navigateToEdit,
@@ -21,13 +21,13 @@ const DisplayCard = ({
       <Card className="mb-4">
         <Card.Header>
           <div className="card-title">
-            <Link to={`/view/${_id}`}>{title}</Link>
+            <Link to={`/view/${id}`}>{title}</Link>
           </div>
           <div className="card-icons">
-            <span onClick={() => navigateToEdit(`${_id}`)} className="p-1">
+            <span onClick={() => navigateToEdit(`${id}`)} className="p-1">
               <BsFillPencilFill />
             </span>
-            <span onClick={() => deleteRecipeHandler(`${_id}`)} className="p-1">
+            <span onClick={() => deleteRecipeHandler(`${id}`)} className="p-1">
               <BsFillTrashFill />
             </span>
           </div>

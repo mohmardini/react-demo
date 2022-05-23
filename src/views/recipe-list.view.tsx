@@ -34,12 +34,12 @@ const RecipeList = () => {
   // Just for testing
   state.recipeList.push(
     {
-      _id: '1',
+      id: '1',
       title: 'test',
       body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi nam placeat explicabo quibusdam provident. Nisi nulla accusantium amet libero dolorum laborum',
     },
     {
-      _id: '2',
+      id: '2',
       title: 'test',
       body: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi nam placeat explicabo quibusdam provident. Nisi nulla accusantium amet libero dolorum laborum',
     }
@@ -58,9 +58,9 @@ const RecipeList = () => {
         <Row xs={1} md={4}>
           {state.recipeList.map((recipe) => {
             return (
-              <Col key={recipe._id}>
+              <Col key={recipe.id}>
                 <DisplayCard
-                  _id={recipe._id}
+                  id={recipe.id}
                   title={recipe.title}
                   body={recipe.body}
                   navigateToEdit={navigateToEdit}

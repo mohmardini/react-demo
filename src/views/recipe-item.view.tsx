@@ -8,7 +8,7 @@ const RecipeItem = () => {
   const { recipeId } = useParams();
   const [image, setImage] = useState({ image: '' });
   const [recipe, setRecipe] = useState<Recipe>({
-    _id: recipeId,
+    id: recipeId,
     title: '',
     body: '',
   });
