@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { getRecipe } from 'src/api/recipe.api';
 import { Recipe } from 'src/models/recipe.model';
@@ -22,13 +22,17 @@ const RecipeItem = () => {
   }, [recipeId]);
 
   return (
-    <Card>
-      <Card.Body>
-        <Card.Img src={image.image}></Card.Img>
-        <Card.Title>{recipe.title}</Card.Title>
-      </Card.Body>
-      <Card.Text>{recipe.body}</Card.Text>
-    </Card>
+    <Container className="p-5">
+      <Card>
+        <Card.Header>
+          <Card.Title>{recipe.title}</Card.Title>
+        </Card.Header>
+        <Card.Body>
+          <Card.Img className="" src={image.image}></Card.Img>
+          <Card.Text className="p-5">{recipe.body}</Card.Text>
+        </Card.Body>
+      </Card>
+    </Container>
   );
 };
 
