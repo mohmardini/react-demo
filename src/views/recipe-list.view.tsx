@@ -9,6 +9,7 @@ import BasicLayout from 'src/layout/BasicLayout';
 import { RecipeActionType } from 'src/models/recipe.model';
 import DisplayCard from '../components/DisplayCard';
 
+
 const RecipeList = () => {
   const { state, dispatch } = useRecipeContext();
 
@@ -44,6 +45,7 @@ const RecipeList = () => {
 
   return (
     <>
+
       <BasicLayout>
         <button
           onClick={navigateToAdd}
@@ -84,6 +86,8 @@ const RecipeList = () => {
             );
           })}
         </Row>
+
+      
       </BasicLayout>
     </>
   );

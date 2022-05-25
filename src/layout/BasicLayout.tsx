@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Footer from './Footer';
 
 type BasicLayoutPropTypes = {
@@ -19,6 +20,10 @@ const BasicLayout = (props: BasicLayoutPropTypes) => {
             style={{ width: 110 }}
           />
         </span>
+
+        <Link to="/login" className="me-4 text-reset">
+              Login
+        </Link>
       </nav>
 
       {/* Bg Image */}
