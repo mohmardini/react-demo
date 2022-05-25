@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import { getRecipe } from 'src/api/recipe.api';
-import { Recipe } from 'src/models/recipe.model';
+import { getRecipe } from 'src/api/Recipe';
+import { Recipe } from 'src/models/Recipe';
 
 const RecipeItem = () => {
   const { recipeId } = useParams();

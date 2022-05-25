@@ -1,4 +1,4 @@
-import { Recipe } from 'src/models/recipe.model';
+import { Recipe } from 'src/models/Recipe';
 const url = 'https://jsonplaceholder.typicode.com/posts/';
 const headers = { 'X-Api-Key': '2r1MsGLr9CVkmoWXP3W9cw==PRc4vXEXY0paXsms' };
 

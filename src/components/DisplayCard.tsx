@@ -2,7 +2,7 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import { BsFillPencilFill, BsFillTrashFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import { Recipe } from 'src/models/recipe.model';
+import { Recipe } from 'src/models/Recipe';
 
 type DisplayCardPropTypes = Recipe & {
   navigateToEdit: (_id: Recipe['id']) => void;
