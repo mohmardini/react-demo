@@ -16,16 +16,25 @@ code {
   height: 100vh;
 }
 
-
-.bg-header{
+.bg-header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("https://assets.epicurious.com/photos/6215118802c6f8194056c32c/16:9/w_2560%2Cc_limit/HoneyBuns_HERO_021622_28331.jpg");
+  background-image: url('https://assets.epicurious.com/photos/6215118802c6f8194056c32c/16:9/w_2560%2Cc_limit/HoneyBuns_HERO_021622_28331.jpg');
   height: 150px;
   width: 100%;
 }
 
+.bg-landing {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('https://visualsonline.cancer.gov/retrieve.cfm?imageid=2397&dpi=300&fileformat=jpg');
+}
+
+.bg-white {
+  background-color: white;
+}
 
 .card-title {
   display: inline-block;
@@ -42,21 +51,21 @@ code {
   text-decoration: none;
 }
 
-.card-icons{
-  float:right;
+.card-icons {
+  float: right;
   cursor: pointer;
 }
 
-.card-description{
-  padding: .5rem 1rem;
+.card-description {
+  padding: 0.5rem 1rem;
   max-height: 200px;
   height: 200px;
   overflow: hidden !important;
   padding-bottom: 10px;
 }
 
-.footer{
-  background-color: #483C32;
+.footer {
+  background-color: #483c32;
   margin-top: 50px;
-  color:white;
+  color: white;
 }

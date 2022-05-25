@@ -6,8 +6,10 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './i18n';
 import './index.css';
+import BasicLayout from './layout/BasicLayout';
 import reportWebVitals from './reportWebVitals';
-import { store } from './store/AppStore';
+import store from './store/AppStore';
+import { Landing } from './views/Landing';
 import NotFound from './views/NotFound';
 import RecipeAddEdit from './views/RecipeEditAdd';
 import RecipeItem from './views/RecipeItem';
@@ -19,13 +21,18 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <BrowserRouter>
-      <Routes>
-        <Route index element={<RecipeList />} />
-        <Route path="view/:recipeId" element={<RecipeItem />} />
-        <Route path="add" element={<RecipeAddEdit />} />
-        <Route path="edit/:recipeId" element={<RecipeAddEdit />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <BasicLayout>
+        <Routes>
+          <Route index element={<Landing />} />
+          <Route path="recipe">
+            <Route index element={<RecipeList />} />
+            <Route path="view/:recipeId" element={<RecipeItem />} />
+            <Route path="add" element={<RecipeAddEdit />} />
+            <Route path="edit/:recipeId" element={<RecipeAddEdit />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BasicLayout>
     </BrowserRouter>
   </Provider>
 );

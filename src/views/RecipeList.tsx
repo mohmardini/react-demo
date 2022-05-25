@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { deleteRecipe, getAllRecipes } from 'src/api/Recipe';
 import { useAppDispatch, useAppSelector } from 'src/hooks/RecipeRedux';
 import { supportedLngs } from 'src/i18n';
-import BasicLayout from 'src/layout/BasicLayout';
 import { addRecipes, selectRecipes } from 'src/store/RecipeSlice';
 import DisplayCard from '../components/DisplayCard';
 
@@ -39,47 +38,45 @@ const RecipeList = () => {
 
   return (
     <>
-      <BasicLayout>
-        <button
-          onClick={navigateToAdd}
-          className="btn btn-outline-warning mb-1 mt-1"
+      <button
+        onClick={navigateToAdd}
+        className="btn btn-outline-warning mb-1 mt-1"
+      >
+        {t('common:createRecipe')}
+      </button>
+
+      <Dropdown>
+        <Dropdown.Toggle
+          variant="outline"
+          className="btn btn-outline-warning mb-1"
         >
-          {t('common:createRecipe')}
-        </button>
+          {i18n.language}
+        </Dropdown.Toggle>
 
-        <Dropdown>
-          <Dropdown.Toggle
-            variant="outline"
-            className="btn btn-outline-warning mb-1"
-          >
-            {i18n.language}
-          </Dropdown.Toggle>
+        <Dropdown.Menu>
+          {supportedLngs.map((lang, idx) => (
+            <Dropdown.Item key={idx} onClick={() => changeLanguage(lang)}>
+              {lang}
+            </Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
 
-          <Dropdown.Menu>
-            {supportedLngs.map((lang, idx) => (
-              <Dropdown.Item key={idx} onClick={() => changeLanguage(lang)}>
-                {lang}
-              </Dropdown.Item>
-            ))}
-          </Dropdown.Menu>
-        </Dropdown>
-
-        <Row xs={1} md={4}>
-          {recipes.map((recipe) => {
-            return (
-              <Col key={recipe.id}>
-                <DisplayCard
-                  id={recipe.id}
-                  title={recipe.title}
-                  body={recipe.body}
-                  navigateToEdit={navigateToEdit}
-                  deleteRecipeHandler={deleteRecipeHandler}
-                />
-              </Col>
-            );
-          })}
-        </Row>
-      </BasicLayout>
+      <Row xs={1} md={4}>
+        {recipes.map((recipe) => {
+          return (
+            <Col key={recipe.id}>
+              <DisplayCard
+                id={recipe.id}
+                title={recipe.title}
+                body={recipe.body}
+                navigateToEdit={navigateToEdit}
+                deleteRecipeHandler={deleteRecipeHandler}
+              />
+            </Col>
+          );
+        })}
+      </Row>
     </>
   );
 };
