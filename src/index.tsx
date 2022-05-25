@@ -10,7 +10,7 @@ import BasicLayout from './layout/BasicLayout';
 import reportWebVitals from './reportWebVitals';
 import store from './store/AppStore';
 import { Landing } from './views/Landing';
-import Login from './views/login';
+import Login from './views/Login';
 import NotFound from './views/NotFound';
 import RecipeAddEdit from './views/RecipeEditAdd';
 import RecipeItem from './views/RecipeItem';
