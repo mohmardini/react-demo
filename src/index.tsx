@@ -10,6 +10,7 @@ import BasicLayout from './layout/BasicLayout';
 import reportWebVitals from './reportWebVitals';
 import store from './store/AppStore';
 import { Landing } from './views/Landing';
+import Login from './views/login';
 import NotFound from './views/NotFound';
 import RecipeAddEdit from './views/RecipeEditAdd';
 import RecipeItem from './views/RecipeItem';
@@ -23,6 +24,7 @@ root.render(
     <BrowserRouter>
       <BasicLayout>
         <Routes>
+          <Route path="login" element={<Login />} />
           <Route index element={<Landing />} />
           <Route path="recipe">
             <Route index element={<RecipeList />} />

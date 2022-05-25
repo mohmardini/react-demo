@@ -8,6 +8,7 @@ import { supportedLngs } from 'src/i18n';
 import { addRecipes, selectRecipes } from 'src/store/RecipeSlice';
 import DisplayCard from '../components/DisplayCard';
 
+
 const RecipeList = () => {
   const recipes = useAppSelector(selectRecipes);
   const dispatch = useAppDispatch();
