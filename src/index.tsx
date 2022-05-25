@@ -2,21 +2,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'react-i18next';
+import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import RecipeProvider from './context/recipe.context';
 import './i18n';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import NotFound from './views/not-found.view';
-import RecipeAddEdit from './views/recipe-add-edit.view';
-import RecipeItem from './views/recipe-item.view';
-import RecipeList from './views/recipe-list.view';
+import { store } from './store/AppStore';
+import NotFound from './views/NotFound';
+import RecipeAddEdit from './views/RecipeEditAdd';
+import RecipeItem from './views/RecipeItem';
+import RecipeList from './views/RecipeList';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <RecipeProvider>
+  <Provider store={store}>
     <BrowserRouter>
       <Routes>
         <Route index element={<RecipeList />} />
@@ -26,7 +27,7 @@ root.render(
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
-  </RecipeProvider>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

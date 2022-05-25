@@ -2,27 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { Col, Dropdown, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { deleteRecipe, getAllRecipes } from 'src/api/recipe.api';
-import { useRecipeContext } from 'src/hooks/recipe-context.hook';
+import { deleteRecipe, getAllRecipes } from 'src/api/Recipe';
+import { useAppDispatch, useAppSelector } from 'src/hooks/RecipeRedux';
 import { supportedLngs } from 'src/i18n';
 import BasicLayout from 'src/layout/BasicLayout';
-import { RecipeActionType } from 'src/models/recipe.model';
+import { addRecipes, selectRecipes } from 'src/store/RecipeSlice';
 import DisplayCard from '../components/DisplayCard';
 
 const RecipeList = () => {
-  const { state, dispatch } = useRecipeContext();
-
+  const recipes = useAppSelector(selectRecipes);
+  const dispatch = useAppDispatch();
   const [refresh, setRefresh] = useState(false);
-
   const { t, i18n } = useTranslation();
-
   const navigate = useNavigate();
 
   useEffect(() => {
-    const recipies = getAllRecipes();
-    recipies.then((recipies) =>
-      dispatch({ type: RecipeActionType.SET_RECIPIES, payload: recipies })
-    );
+    getAllRecipes().then((recipies) => dispatch(addRecipes(recipies)));
   }, [dispatch, refresh]);
 
   const navigateToAdd = () => {
@@ -70,7 +65,7 @@ const RecipeList = () => {
         </Dropdown>
 
         <Row xs={1} md={4}>
-          {state.recipeList.map((recipe) => {
+          {recipes.map((recipe) => {
             return (
               <Col key={recipe.id}>
                 <DisplayCard
