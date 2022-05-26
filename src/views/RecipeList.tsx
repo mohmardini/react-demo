@@ -21,11 +21,11 @@ const RecipeList = () => {
   }, [dispatch, refresh]);
 
   const navigateToAdd = () => {
-    navigate('/add');
+    navigate('/recipe/add');
   };
 
   const navigateToEdit = (_id?: string) => {
-    navigate('/edit/' + _id);
+    navigate('/recipe/edit/' + _id);
   };
 
   const deleteRecipeHandler = (_id?: string) => {

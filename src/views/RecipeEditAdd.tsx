@@ -3,8 +3,9 @@ import { Button, Form } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { addRecipe, getRecipe, putRecipe } from 'src/api/Recipe';
-import BasicLayout from 'src/layout/BasicLayout';
 import { Recipe } from 'src/models/Recipe';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RecipeAddEdit = () => {
   const { recipeId } = useParams();
@@ -31,10 +32,13 @@ const RecipeAddEdit = () => {
     e.preventDefault();
     if (mode === 'ADD') addRecipe({ ...recipe });
     else putRecipe(recipe);
+
+    toast("Successful!");
   };
 
   return (
-    <BasicLayout>
+    <>
+     <ToastContainer />
       <Form onSubmit={(e) => submit(e)}>
         {Object.keys(recipe).map((key) => (
           <Form.Group className="m-3" controlId={`formBasic${key}`} key={key}>
@@ -51,7 +55,7 @@ const RecipeAddEdit = () => {
           {t('common:submit')}
         </Button>
       </Form>
-    </BasicLayout>
+      </>
   );
 };
 
