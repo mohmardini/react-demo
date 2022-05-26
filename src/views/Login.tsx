@@ -1,6 +1,7 @@
 import { Formik } from 'formik';
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { login } from 'src/api/Auth';
@@ -12,6 +13,8 @@ const Login = () => {
     password: '',
   };
 
+  const nav = useNavigate();
+
   const validationSchema = Yup.object({
     email: Yup.string().required(),
     password: Yup.string().required(),
@@ -20,7 +23,9 @@ const Login = () => {
   const handleSubmit = (values: any) => {
     login(values).then((response) => {
       toast('Successful!');
-
+      setTimeout(() => {
+        nav('/recipe');
+      }, 1000);
       //save jwt
     });
   };

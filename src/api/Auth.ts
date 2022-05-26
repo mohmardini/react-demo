@@ -11,22 +11,22 @@ interface SignUpRequest {
   agreed: boolean;
 }
 
-interface SignUpResponse {
-  ok: string;
-}
+// interface SignUpResponse {
+//   ok: string;
+// }
 
 interface LoginRequest {
   email: string;
   password: string;
 }
 
-interface LoginResponse {
-  access_token: string;
-  refresh_token: string;
-  id: number;
-  token_type: string;
-  expires_in: number;
-}
+// interface LoginResponse {
+//   access_token: string;
+//   refresh_token: string;
+//   id: number;
+//   token_type: string;
+//   expires_in: number;
+// }
 
 export const login = async (values: LoginRequest) => {
   return await axios
@@ -34,8 +34,7 @@ export const login = async (values: LoginRequest) => {
       username: values.email,
       password: values.password,
     })
-    .then((response: any) => response.json())
-    .then((response: LoginResponse) => response.access_token);
+    .then((response: any) => response.access_token);
 };
 
 export const signup = async (values: SignUpRequest) => {
@@ -44,6 +43,5 @@ export const signup = async (values: SignUpRequest) => {
       username: values.email,
       password: values.password,
     })
-    .then((response: any) => response.json())
-    .then((response: SignUpResponse) => response.ok);
+    .then((response: any) => response.ok);
 };
