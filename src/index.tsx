@@ -15,6 +15,7 @@ import NotFound from './views/NotFound';
 import RecipeAddEdit from './views/RecipeEditAdd';
 import RecipeItem from './views/RecipeItem';
 import RecipeList from './views/RecipeList';
+import SignUp from './views/SignUp';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -24,8 +25,9 @@ root.render(
     <BrowserRouter>
       <BasicLayout>
         <Routes>
-          <Route path="login" element={<Login />} />
           <Route index element={<Landing />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
           <Route path="recipe">
             <Route index element={<RecipeList />} />
             <Route path="view/:recipeId" element={<RecipeItem />} />
