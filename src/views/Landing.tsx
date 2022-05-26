@@ -12,7 +12,7 @@ export const Landing = ({}: LandingProps) => {
       </Container>
       <Container className="d-flex flex-column justify-content-center align-items-center h-100">
         <h1>🌚🍲</h1>
-        <Link to="#" className="btn btn-primary">
+        <Link to="login" className="btn btn-primary">
           Get started
         </Link>
       </Container>
