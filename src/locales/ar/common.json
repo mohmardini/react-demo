@@ -1,6 +1,8 @@
 {
   "common": {
     "createRecipe": "إنشاء وصفة",
-    "submit": "أرسل"
+    "submit": "أرسل",
+    "intro": "أفضل الوصفات في النظام الشمسي",
+    "get_started" : "هيا بنا"
   }
 }

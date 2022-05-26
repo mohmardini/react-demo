@@ -21,7 +21,7 @@ const DisplayCard = ({
       <Card className="mb-4">
         <Card.Header>
           <div className="card-title">
-            <Link to={`/view/${id}`}>{title}</Link>
+            <Link to={`/recipe/view/${id}`}>{title}</Link>
           </div>
           <div className="card-icons">
             <span onClick={() => navigateToEdit(`${id}`)} className="p-1">

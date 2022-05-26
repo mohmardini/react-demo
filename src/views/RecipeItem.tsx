@@ -28,8 +28,11 @@ const RecipeItem = () => {
           <Card.Title>{recipe.title}</Card.Title>
         </Card.Header>
         <Card.Body>
-          <Card.Img className="" src={image.image}></Card.Img>
-          <Card.Text className="p-5">{recipe.body}</Card.Text>
+          <div className='row'>
+            <div  className="col-md-2"> <Card.Img src={image.image} ></Card.Img></div>
+            <div  className="col-md-4"> <Card.Text >{recipe.body}</Card.Text> <div>Calories: 266. Fat: 10.1g. Sodium: 396mg.</div></div>
+         
+          </div>
         </Card.Body>
       </Card>
     </Container>

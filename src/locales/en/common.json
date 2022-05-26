@@ -1,6 +1,8 @@
 {
   "common": {
     "createRecipe": "Create Recipe",
-    "submit": "Submit"
+    "submit": "Submit",
+    "intro": "The best recipes in the solar system.",
+    "get_started" :"Get started"
   }
 }
