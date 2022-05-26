@@ -1,5 +1,6 @@
 import { Formik } from 'formik';
 import React from 'react';
+import { Card } from 'react-bootstrap';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { login } from 'src/api/Auth';
@@ -44,46 +45,50 @@ const Login = () => {
           handleSubmit,
           isSubmitting,
         }) => (
-          <form onSubmit={handleSubmit}>
-            <input
-              className="form-control m-2"
-              name="email"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.email}
-              placeholder="Username"
-            />
-            {errors.email ? (
-              <div className="invalid-feedback d-block m-2">{errors.email}</div>
-            ) : (
-              ''
-            )}
+          <Card className="p-5 m-5">
+            <form onSubmit={handleSubmit} className="mt-5">
+              <input
+                className="form-control m-2"
+                name="email"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.email}
+                placeholder="Username"
+              />
+              {errors.email ? (
+                <div className="invalid-feedback d-block m-2">
+                  {errors.email}
+                </div>
+              ) : (
+                ''
+              )}
 
-            <input
-              className="form-control m-2"
-              type="password"
-              name="password"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.password}
-              placeholder="Password"
-            />
-            {errors.password ? (
-              <div className="invalid-feedback d-block m-2">
-                {errors.password}
-              </div>
-            ) : (
-              ''
-            )}
+              <input
+                className="form-control m-2"
+                type="password"
+                name="password"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.password}
+                placeholder="Password"
+              />
+              {errors.password ? (
+                <div className="invalid-feedback d-block m-2">
+                  {errors.password}
+                </div>
+              ) : (
+                ''
+              )}
 
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="btn btn-warning m-2"
-            >
-              Submit
-            </button>
-          </form>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="btn btn-warning m-2"
+              >
+                Submit
+              </button>
+            </form>
+          </Card>
         )}
       </Formik>
     </div>
